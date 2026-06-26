@@ -58,17 +58,20 @@ body::before {
 /* ── Music Button ── */
 .music-btn {
   position: fixed; bottom: 28px; right: 28px; z-index: 10000;
-  width: 40px; height: 40px; border-radius: 50%;
-  background: transparent; border: 2px solid rgba(176,122,60,0.3);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.7); border: 2.5px solid rgba(176,122,60,0.5);
   cursor: pointer; display: flex; align-items: center; justify-content: center;
-  backdrop-filter: blur(4px); transition: all 0.5s ease;
+  backdrop-filter: blur(6px); transition: all 0.5s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 .music-btn::after {
-  content: ''; width: 14px; height: 14px; border-radius: 50%;
-  border: 2px solid var(--accent); transition: all 0.5s ease;
+  content: ''; width: 16px; height: 16px; border-radius: 50%;
+  border: 2.5px solid var(--accent); transition: all 0.5s ease;
 }
-.music-btn.playing::after { border-color: var(--accent-glow); box-shadow: 0 0 8px rgba(180,120,60,0.3); }
+.music-btn.playing { background: rgba(255,255,255,0.85); border-color: var(--accent-glow); box-shadow: 0 2px 16px rgba(176,122,60,0.2); }
+.music-btn.playing::after { border-color: var(--accent-glow); box-shadow: 0 0 10px rgba(180,120,60,0.35); }
 .music-btn.paused::after { border-right-color: transparent; border-bottom-color: transparent; transform: rotate(-45deg); }
+.music-btn.paused::before { content: '点击播放'; position: absolute; right: 56px; white-space: nowrap; font-family: 'Noto Sans SC', sans-serif; font-size: 12px; color: var(--accent); letter-spacing: 0.06em; opacity: 0.7; }
 
 /* ── Hero ── */
 .hero {
@@ -350,7 +353,7 @@ body::before {
   <div class="hero-line"></div>
   <h1 id="heroTitle">谨以此文<br>纪念我的高中三年</h1>
   <div class="typewriter-wrap"><span id="typewriter" class="typing"></span></div>
-  <div class="hero-scroll"><span>向下滚动</span><div class="arrow"></div></div>
+  <div class="hero-scroll"><span style="margin-bottom:4px;font-size:12px;color:var(--accent);opacity:0.7;">点击屏幕 播放音乐 向下滚动</span><div class="arrow"></div></div>
 </section>
 
 <div class="container">
