@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谨以此文，纪念我的高中三年</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf6f0;
+  --hero-bg: #f3ece0;
+  --text: #3a3530;
+  --text-light: #6b635a;
+  --accent: #b07a3c;
+  --accent-glow: #d4a050;
+  --border: #e0d2b8;
+  --highlight: #8b4a1b;
+  --epilogue-bg: #f0e8da;
+  --dark-bg: #3a2a18;
+  --dark-text: #f0e6d2;
+  --dawn-top: #dce8f0;
+  --dawn-bot: #f4d8a0;
+
+  /* Card palette */
+  --card-warm: #f6efe5;
+  --card-warm-border: #b07a3c;
+  --card-green: #eef0ea;
+  --card-green-border: #7a8b6e;
+  --card-blue: #edf0f3;
+  --card-blue-border: #6e8291;
+  --card-pink: #f4ede8;
+  --card-pink-border: #9b7a6a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  line-height: 2.0;
+  font-size: 18.5px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.8s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999;
+}
+
+.container { max-width: 740px; margin: 0 auto; padding: 0 28px; }
+
+/* ── Music Button ── */
+.music-btn {
+  position: fixed; bottom: 28px; right: 28px; z-index: 10000;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: transparent; border: 2px solid rgba(176,122,60,0.3);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(4px); transition: all 0.5s ease;
+}
+.music-btn::after {
+  content: ''; width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid var(--accent); transition: all 0.5s ease;
+}
+.music-btn.playing::after { border-color: var(--accent-glow); box-shadow: 0 0 8px rgba(180,120,60,0.3); }
+.music-btn.paused::after { border-right-color: transparent; border-bottom-color: transparent; transform: rotate(-45deg); }
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  padding: 60px 20px; position: relative;
+  background: var(--hero-bg);
+}
+.hero-line { width: 50px; height: 2px; background: var(--accent); margin: 0 auto 48px; opacity: 0.45; }
+.hero h1 { font-size: clamp(1.8rem, 4.5vw, 2.4rem); font-weight: 900; letter-spacing: 0.12em; color: var(--text); margin-bottom: 56px; line-height: 1.8; }
+.hero h1 .char { display: inline-block; opacity: 0; animation: charSpring 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+@keyframes charSpring {
+  0% { opacity: 0; transform: translateY(30px); }
+  60% { opacity: 0.7; transform: translateY(-4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.typewriter-wrap { min-height: 3.2em; display: flex; justify-content: center; align-items: center; }
+#typewriter { font-family: 'Noto Sans SC', sans-serif; font-size: 14px; font-weight: 300; color: var(--text-light); letter-spacing: 0.06em; border-right: 2px solid var(--accent); padding-right: 6px; display: inline-block; }
+#typewriter.typing { animation: blink 0.8s step-end infinite; }
+#typewriter.done { border-color: transparent; color: var(--accent); font-weight: 400; animation: none; }
+@keyframes blink { 50% { border-color: transparent; } }
+
+.hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); }
+.hero-scroll span { font-size: 11px; letter-spacing: 0.15em; color: var(--text-light); display: block; text-align: center; margin-bottom: 8px; opacity: 0; animation: fadeInUp 1s 5s forwards; }
+.hero-scroll .arrow { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--accent), transparent); margin: 0 auto; opacity: 0; animation: fadeInUp 1s 5s forwards; }
+
+/* ── Sections ── */
+.section { margin: 70px 0; }
+
+/* ── Opening ── */
+.opening p { text-indent: 2em; font-size: 18.5px; margin-bottom: 1.5em; color: var(--text); }
+.opening .dropcap::first-letter { float: left; font-size: 3.5em; line-height: 0.75; padding-right: 8px; padding-top: 4px; color: var(--accent); font-weight: 900; }
+
+/* ── Inline keyword highlight ── */
+.kw { color: var(--highlight); font-weight: 600; }
+
+/* ── Key highlight sentences ── */
+.key-sentence {
+  display: block; text-align: center; font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700; color: var(--highlight); letter-spacing: 0.07em;
+  margin: 42px 0; padding: 18px 0;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s;
+  position: relative;
+}
+.key-sentence.visible { opacity: 1; transform: translateY(0); }
+.key-sentence::after { content: ''; display: block; width: 30px; height: 2px; background: var(--accent); margin: 18px auto 0; opacity: 0.5; }
+
+/* ── Visual Break: full screen, white bg, black text ── */
+.visual-break {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: #ffffff; text-align: center; padding: 60px 20px;
+  position: relative;
+}
+.visual-break .break-text {
+  font-weight: 900; color: #1a1a1a; letter-spacing: 0.08em; line-height: 1.3;
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.visual-break .break-text.visible { opacity: 1; transform: translateY(0); }
+
+/* Break 1: 8 characters across 2 lines */
+.break-large { font-size: clamp(3rem, 10vw, 5rem); }
+
+/* Break 2,3,4: 2-4 chars, one screen, one word */
+.break-huge { font-size: clamp(4rem, 14vw, 7rem); letter-spacing: 0.15em; }
+
+/* Break 5: handwritten */
+.visual-break.letter-style .break-text {
+  font-family: 'Ma Shan Zheng', 'STKaiti', 'KaiTi', serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 400;
+  color: #2a2a2a;
+  letter-spacing: 0.08em;
+}
+
+/* ── Memory Cards ── */
+.memory-card {
+  padding: 38px 36px; margin: 26px 0; border-radius: 6px;
+  opacity: 0; position: relative;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.memory-card p { font-size: 18.5px; }
+
+/* Card colours */
+.card-a { background: var(--card-warm); border-left: 5px solid var(--card-warm-border); border-radius: 0 6px 6px 0; transform: translateX(40px) rotate(0.5deg); }
+.card-b { background: var(--card-green); border-left: 5px solid var(--card-green-border); border-radius: 0 6px 6px 0; transform: translateX(-40px) rotate(-0.5deg); }
+.card-c { background: var(--card-blue); border-right: 5px solid var(--card-blue-border); border-radius: 6px 0 0 6px; transform: translateX(40px) rotate(0.3deg); }
+.card-d { background: var(--card-pink); border-right: 5px solid var(--card-pink-border); border-radius: 6px 0 0 6px; transform: translateX(-40px) rotate(-0.3deg); }
+
+.memory-card.visible { opacity: 1; transform: translateX(0) translateY(0) rotate(0); }
+.memory-card .label {
+  font-family: 'Noto Sans SC', sans-serif; font-size: 11px;
+  letter-spacing: 0.25em; color: var(--text-light); margin-bottom: 18px; font-weight: 500; opacity: 0.6;
+}
+
+/* ── Photos with glow ── */
+.photo-wrap {
+  overflow: hidden; position: relative; margin: 12px 0;
+  border-radius: 4px; opacity: 0; transform: translateY(20px);
+  transition: opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s;
+}
+.photo-wrap.visible { opacity: 1; transform: translateY(0); }
+.photo-wrap .photo-hint {
+  font-family: 'Noto Sans SC', sans-serif; font-size: 11px;
+  color: var(--text-light); text-align: center; margin-bottom: 8px;
+  letter-spacing: 0.08em; opacity: 0.55;
+}
+.photo-inline {
+  width: 100%; display: block; border-radius: 4px;
+  box-shadow: 0 0 0 0 rgba(180,120,60,0);
+  transition: box-shadow 1.8s ease;
+}
+.photo-wrap.visible .photo-inline {
+  box-shadow: 0 0 0 4px rgba(180,120,60,0.08), 0 2px 16px rgba(0,0,0,0.05);
+}
+.photo-caption {
+  font-family: 'Noto Sans SC', sans-serif; font-size: 11px;
+  color: var(--text-light); text-align: center; margin: 6px 0 20px; letter-spacing: 0.05em;
+}
+.photo-full-wrap { overflow: hidden; margin: 60px calc(50% - 50vw); position: relative; }
+.photo-full {
+  width: 100vw; display: block; object-fit: cover; max-height: 75vh;
+  opacity: 0; transform: scale(0.97);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.photo-full.visible { opacity: 1; transform: scale(1); }
+
+/* ── Breathing dots block ── */
+.dots-block {
+  min-height: 60vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; position: relative;
+  margin: 40px 0;
+}
+.dots-block .dots-text {
+  font-size: 3rem; letter-spacing: 0.35em; color: var(--accent);
+  animation: breatheText 3.5s ease-in-out infinite; z-index: 2;
+}
+@keyframes breatheText {
+  0%, 100% { opacity: 0.25; transform: scale(0.95); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+.dots-block .pulse-ring {
+  position: absolute; width: 120px; height: 120px; border-radius: 50%;
+  border: 1px solid rgba(176,122,60,0.15);
+  animation: pulseRing 3.5s ease-in-out infinite; z-index: 1;
+  pointer-events: none;
+}
+@keyframes pulseRing {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.3); opacity: 0.35; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ── Climax Section ── */
+.climax-zone {
+  position: relative; margin: 40px 0; padding: 80px 0;
+  transition: background-color 0.6s ease;
+}
+.climax-zone.warm { background-color: #ede3d2; }
+.climax-zone.peak { background-color: #e8d8bf; }
+
+.climax {
+  padding: 50px 36px; margin: 70px 0;
+  text-align: center; position: relative;
+  opacity: 0; transform: translateY(35px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.climax.visible { opacity: 1; transform: translateY(0); }
+.climax p { text-indent: 0 !important; font-size: 18.5px; line-height: 2.2; margin-bottom: 1.2em; color: var(--text); }
+
+.climax-hl-wrap { margin: 20px 0; min-height: 2em; }
+.climax .climax-char {
+  display: inline-block; font-size: clamp(1.4rem, 3.5vw, 1.65rem);
+  font-weight: 700; color: var(--highlight); letter-spacing: 0.06em;
+  opacity: 0;
+}
+.climax .climax-char.flash { animation: charFlash 0.35s ease forwards; }
+@keyframes charFlash {
+  0% { opacity: 0; transform: translateY(8px); color: var(--accent-glow); }
+  60% { opacity: 1; transform: translateY(-2px); }
+  100% { opacity: 1; transform: translateY(0); color: var(--highlight); }
+}
+
+/* ── New text section ── */
+.meditation {
+  margin: 60px 0;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.meditation.visible { opacity: 1; transform: translateY(0); }
+.meditation p { text-indent: 2em; font-size: 18.5px; margin-bottom: 1.5em; color: var(--text); line-height: 2.2; }
+.meditation p.no-indent { text-indent: 0; }
+.meditation .med-hl {
+  display: block; text-align: center; font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700; color: var(--highlight); margin: 36px 0; letter-spacing: 0.06em;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+.meditation .med-hl.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Dark closing ── */
+.closing-dark {
+  min-height: 70vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  background: var(--dark-bg); color: var(--dark-text);
+  margin: 80px calc(50% - 50vw); padding: 80px 20px;
+  opacity: 0; transition: opacity 1.2s ease;
+}
+.closing-dark.visible { opacity: 1; }
+.closing-dark .final-line {
+  font-size: clamp(2rem, 6vw, 3rem); font-weight: 900;
+  color: var(--accent-glow); letter-spacing: 0.15em;
+  margin-bottom: 24px; line-height: 1.5;
+}
+
+/* ── Dawn closing ── */
+.dawn-closing {
+  min-height: 80vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 80px 20px;
+  background: linear-gradient(170deg, var(--dawn-top) 0%, #e8e0f0 30%, #f5e6d0 60%, var(--dawn-bot) 100%);
+  opacity: 0; transition: opacity 1.2s ease;
+}
+.dawn-closing.visible { opacity: 1; }
+.dawn-closing .dawn-text {
+  font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 700;
+  color: #7a4a20; letter-spacing: 0.1em; line-height: 1.7;
+  text-shadow: 0 1px 4px rgba(255,240,210,0.3);
+}
+
+/* ── Epilogue ── */
+.epilogue {
+  background: var(--epilogue-bg); border-radius: 6px;
+  padding: 42px 36px; margin: 60px 0 100px; font-size: 16px;
+  color: var(--text-light); line-height: 2.1; position: relative;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.epilogue.visible { opacity: 1; transform: translateY(0); }
+.epilogue::before { content: '── 后记 ──'; display: block; text-align: center; font-family: 'Noto Sans SC', sans-serif; font-size: 12px; letter-spacing: 0.25em; color: var(--accent); margin-bottom: 28px; font-weight: 500; }
+.epilogue p { text-indent: 2em; margin-bottom: 1.2em; color: var(--text-light); }
+.epilogue .score { display: block; text-align: center; font-size: 1.7em; font-weight: 900; color: var(--highlight); letter-spacing: 0.03em; margin: 8px 0; }
+
+/* ── Footer ── */
+.footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border); margin-top: 40px; }
+.footer p { font-family: 'Noto Sans SC', sans-serif; font-size: 11px; color: var(--text-light); letter-spacing: 0.1em; }
+
+/* ── Animations ── */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .container { padding: 0 16px; }
+  .memory-card { padding: 24px 18px; }
+  .memory-card p, .opening p, .meditation p { font-size: 15.5px; }
+  body { font-size: 15.5px; }
+  .hero h1 { font-size: 1.5rem; }
+  .key-sentence { font-size: 1.12rem; }
+  .break-large { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+  .break-huge { font-size: clamp(3rem, 12vw, 5.5rem); }
+  .visual-break.letter-style .break-text { font-size: 1.6rem; }
+  .climax { padding: 36px 22px; }
+  .climax .climax-char { font-size: 1.2rem; }
+  .climax p { font-size: 15.5px; }
+  .epilogue { padding: 28px 18px; font-size: 14px; }
+  .closing-dark { min-height: 50vh; padding: 60px 16px; }
+  .closing-dark .final-line { font-size: 1.8rem; }
+  .dawn-closing { min-height: 60vh; }
+  .dawn-closing .dawn-text { font-size: 1.5rem; }
+  .music-btn { bottom: 18px; right: 18px; width: 36px; height: 36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-line"></div>
+  <h1 id="heroTitle">谨以此文<br>纪念我的高中三年</h1>
+  <div class="typewriter-wrap"><span id="typewriter" class="typing"></span></div>
+  <div class="hero-scroll"><span>向下滚动</span><div class="arrow"></div></div>
+</section>
+
+<div class="container">
+
+<!-- ═══ OPENING ═══ -->
+<section class="section opening">
+  <p class="dropcap">查完分的晚上，看到了一年前写给自己的信，突然<span class="kw">特别特别想哭</span>。</p>
+  <p>我不敢想象一年前的自己是怀着怎样的心情写下了这封信，当时是高三的入境仪式，也是我整个高中里<span class="kw">最痛苦的时候</span>，那个时候身体和状态出现了很大的问题，成绩也进入了瓶颈期，我每天都无比的焦虑，并且感到自己甚至失去了前行的动力，但无论如何，当时的我希望未来的自己看到这封信更多的是感动与幸福，而不是责怪与遗憾。</p>
+
+  <span class="key-sentence">17岁的我把最温柔的话留给了18岁的我</span>
+
+  <p>高三其实是我高中生涯里面努力程度比较低的一年，高三的状态，根本赶不上高一的状态，所以当时的我非常非常痛苦，尽管可能已经很努力了，但是到不了高一拼命的状态，我也会非常责怪自己。</p>
+  <div class="photo-wrap"><div class="photo-hint">—— 这是那封信现在的样子 ——</div><img src="微信图片_2026-06-26_101924_999.jpg" alt="写给自己的一封信" class="photo-inline" loading="lazy"></div>
+  <div class="photo-caption">一年前写给自己的信</div>
+  <p>每当想起高一的我，16岁的我自己，我都会非常非常感动，敬佩以至于怀念。中考成绩不是特别理想，所以高一<span class="kw">特别特别拼命</span>。</p>
+</section>
+
+</div><!-- .container -->
+
+<!-- ═══ VISUAL BREAK 1: 我永远记得我的来时路 ═══ -->
+<section class="visual-break">
+  <div class="break-text break-large">我永远记得<br>我的来时路</div>
+</section>
+
+<!-- ═══ VISUAL BREAK 2-4 ═══ -->
+<section class="visual-break">
+  <div class="break-text break-huge">我记得</div>
+</section>
+<section class="visual-break">
+  <div class="break-text break-huge">每一天</div>
+</section>
+<section class="visual-break">
+  <div class="break-text break-huge" style="letter-spacing:0.2em;">从未缺席</div>
+</section>
+
+<div class="container">
+<!-- ═══ MEMORIES ═══ -->
+
+<!-- C1: warm -->
+<article class="memory-card card-a">
+  <div class="label">记忆 · 一</div>
+  <p>我记得高一刚刚开学的时候读到了老王的《高三突围》，觉得自己抓到了先机，每天5点多天不亮就偷偷从寝室爬起来，借着水房<span class="kw">微弱的光</span>疯狂的看书，寝室的床质量不好，我必须特别小心，才能保证不吵到舍友，冬天的时候穿衣服声音比较大，我甚至只能头天晚上把包放在门口，清晨<span class="kw">把外衣抱着去寝室外面穿</span>。</p>
+</article>
+
+<!-- C2: green -->
+<article class="memory-card card-b">
+  <div class="label">记忆 · 二</div>
+  <p>我记得高一刚刚学文科的时候，还不知道什么是活页本，为了能随身携带，我自己把纸裁成两段，写了很多<span class="kw">简陋的小纸条</span>放在口袋里，现在拿出来已经破的不成样子，直到高二的时候，我发现活页本更好用，背书的时候可以把里面的纸张单独拿出来，无论是做早操，排队吃饭，排队打水，<span class="kw">我的小纸条从未缺席</span>。</p>
+  <div class="photo-wrap"><div class="photo-hint">—— 这是它们现在的样子 ——</div><img src="微信图片_2026-06-26_101839_017.jpg" alt="小纸条" class="photo-inline" loading="lazy"></div>
+  <div class="photo-caption">随身携带的小纸条</div>
+  <div class="photo-wrap"><img src="微信图片_2026-06-26_101934_744.jpg" alt="活页本" class="photo-inline" loading="lazy"></div>
+  <div class="photo-caption">后来才学会用的活页本</div>
+</article>
+
+<!-- C3: blue -->
+<article class="memory-card card-c">
+  <div class="label">记忆 · 三</div>
+  <p>我记得高一为了争取更多的学习时间，选择住宿，每天三晚结束都已经快11点了，我总是喜欢在晚上<span class="kw">找一个空寝室背书背到12点</span>，我的室友们甚至一开始因为我太爱学习了，而认为我不好相处，我喜欢在洗漱之前把完整的东西背下来，然后在洗漱的时候<span class="kw">用嘴巴再直接复述</span>，即使每次洗衣服的时候身边总有诧异的目光。</p>
+</article>
+
+<!-- C4: pink -->
+<article class="memory-card card-d">
+  <div class="label">记忆 · 四</div>
+  <p>我记得高一住宿的中午，因为寝室学习效率低，<span class="kw">无论寒冬酷暑都在楼梯口学习的我们</span>。我记得冬天楼梯口冰冷的楼梯和刺骨的寒风，我也记得夏日窗边黏腻的空气和飞舞的蚊虫，还有夜晚楼梯口昏暗的灯光，还有我自己带的总是连接不良的，<span class="kw">一闪一闪的小台灯</span>。</p>
+</article>
+
+<!-- C5: warm -->
+<article class="memory-card card-a">
+  <div class="label">记忆 · 五</div>
+  <p>我记得高一从树林那里学到了艾宾浩斯曲线记忆法，那个时候还不会用电脑，我自己<span class="kw">对着书手绘了表格</span>，强迫自己在每一天完成学习任务之后，复习前一天、前四天、前七天、前十天、前十四天、前二十天、前三十天的内容，强迫自己把每一天的内容完成<span class="kw">七轮复习</span>，用一个月写完一张艾宾浩斯曲线记录表。</p>
+  <div class="photo-wrap"><div class="photo-hint">—— 手绘的记忆曲线 ——</div><img src="微信图片_2026-06-26_101942_784.jpg" alt="艾宾浩斯曲线记录表" class="photo-inline" loading="lazy"></div>
+  <div class="photo-caption">对着书手绘的艾宾浩斯记忆曲线表</div>
+</article>
+
+<!-- C6: green -->
+<article class="memory-card card-b">
+  <div class="label">记忆 · 六</div>
+  <p>我记得高一特别特别注重时间管理，<span class="kw">手绘了每天的时间表</span>，清清楚楚的记录课上，课间，以及自习的时候做了哪些任务以及效率多少，我把亲手绘制的表打印好多份，<span class="kw">一天一张</span>。</p>
+  <div class="photo-wrap"><img src="微信图片_2026-06-26_101954_640.jpg" alt="每日时间表" class="photo-inline" loading="lazy"></div>
+  <div class="photo-caption">手绘的每日时间记录表</div>
+</article>
+
+<!-- C7: blue -->
+<article class="memory-card card-c">
+  <div class="label">记忆 · 七</div>
+  <p>我记得高一刚刚入学的时候进的是理科好班，准备学文科的我因为当时考试只考理科，而总分很差，害怕过不了学考，我只能在物理课上问了很多题，特别简单的问题，在每一次老师说这里都懂了吗的时候，<span class="kw">硬着头皮提出不会</span>，迎着<span class="kw">全班各种各样的目光</span>拼命学。</p>
+</article>
+
+<!-- C8: pink -->
+<article class="memory-card card-d">
+  <div class="label">记忆 · 八</div>
+  <p>我记得高一的时候没有双休，我每次星期六中午放学之后都会简单吃一口饭，来不及睡觉，我就往图书馆跑，<span class="kw">害怕睡过点了，没有位置</span>，为了保证学习状态，只能在图书馆趴一小会，然后一直学到晚上10点。</p>
+</article>
+
+<!-- C9: warm -->
+<article class="memory-card card-a">
+  <div class="label">记忆 · 九</div>
+  <p>我记得高一刚刚开学的时候数学什么都不会，我只能找到机会就拼命的去办公室问题，<span class="kw">平均一天去办公室五六趟</span>，然后还担心会不会问的太多了会打扰到老师。数学题花的时间比较长，短短的课间10分钟问不完，我只能每次选择吃饭那个大课间去问题，为了早点赶过去，<span class="kw">每一顿晚饭都是掐着表吃的</span>，有时候去食堂的时候跑的慢了一点时间就不够吃饭了，只能狼吞虎咽后匆匆放下筷子，抱着书跑向办公室。</p>
+</article>
+
+<!-- C10: green -->
+<article class="memory-card card-b">
+  <div class="label">记忆 · 十</div>
+  <p>我记得在校园里，我去上课，去食堂，去寝室都是跑着的，或者边走边看小纸条，正因如此，我很少跟朋友结伴而行，结伴吃饭，我的朋友时常问我，一个人走路，一个人吃饭，会不会很尴尬。我的回答是节省时间。</p>
+</article>
+
+<span class="key-sentence">但其实时间久了也会很孤独</span>
+
+<!-- C11: blue -->
+<article class="memory-card card-c">
+  <div class="label">记忆 · 十一</div>
+  <p>我记得高中因为早起晚睡，上课有时候也会犯困。我记得为了醒困而在<span class="kw">皮肤上留下的指甲印</span>，也记得顶着老师和同学的目光，在困的时候<span class="kw">站到教室后面的时刻</span>，甚至有时候即使站着也会困到昏厥，站着站着，手里的书会掉到地上。</p>
+</article>
+
+<!-- C12: pink -->
+<article class="memory-card card-d">
+  <div class="label">记忆 · 十二</div>
+  <p>我记得高中背书背的最难的时候，下载了b站很多可以听的资料，下载了一堆古诗词，政治核心知识点，历史核心知识点，走路听，吃饭听，睡前听，只要不看书，零碎时间在家都听。然后很多英语作文的句式，网络上没有现成的音频，我甚至会<span class="kw">自己录了一堆网易云的播客</span>，用自己的声音循环播放来记英语，因为要背的东西实在太多了，而且数学占了太多时间，导致我的背诵<span class="kw">不得不用在零碎时间</span>。</p>
+  <div class="photo-wrap"><div class="photo-hint">—— 自己录给自己的声音 ——</div><img src="微信图片_2026-06-26_102006_328.jpg" alt="自己录的播客截图" class="photo-inline" loading="lazy"></div>
+  <div class="photo-caption">自己录制的网易云英语作文播客</div>
+</article>
+
+</div><!-- .container -->
+
+<!-- ═══ BREATHING DOTS ═══ -->
+<div class="dots-block">
+  <div class="pulse-ring"></div>
+  <div class="dots-text">……</div>
+</div>
+
+<div class="container">
+
+<!-- ═══ CLIMAX ═══ -->
+<section class="climax-zone" id="climaxZone">
+<section class="climax" id="climaxSection">
+  <p>我知道自己没有太多天赋，只能靠努力填补。还好终于有了结果。</p>
+  <p>感谢高中三年拼尽全力的自己。</p>
+  <div class="climax-hl-wrap" id="climaxHL"></div>
+  <p>谢谢你，给了直面困境的勇气。</p>
+  <p style="margin-top:20px;">谢谢看到这里的你。</p>
+</section>
+</section>
+
+<!-- ═══ FINAL PHOTO ═══ -->
+</div>
+<div class="photo-full-wrap"><img src="微信图片_2026-06-26_102013_457.jpg" alt="高考成绩" class="photo-full" loading="lazy"></div>
+<div class="container">
+
+<!-- ═══ VISUAL BREAK 5 ═══ -->
+</div>
+<section class="visual-break letter-style">
+  <div class="break-text">18岁快乐<br>我知道你无所不能</div>
+</section>
+<div class="container">
+
+<!-- ═══ NEW TEXT ═══ -->
+<section class="meditation" id="meditationSection">
+  <p class="no-indent" style="text-indent:0;">我一直在想，为什么我要把这些东西写下来。</p>
+  <p>可能是因为，我太害怕忘记了。我怕我忘了高一那年冬天，在楼梯口背书的时候<span class="kw">手指冻得翻不动书页</span>。我怕我忘了自己在物理课上站起来说"这里我不懂"的时候，<span class="kw">整个教室安静的那两秒钟</span>。我怕我忘了那些一个人走过的路、一个人吃过的饭、一个人在水房里借光看书的凌晨五点。</p>
+  <p>这些东西说出来，好像也没什么了不起的。没有逆袭的神话，没有天才的剧本，就是一个不太聪明的人，用<span class="kw">最笨的方法</span>，走了很远的路。</p>
+  <p>但是你知道吗。当我查完分的那一刻，我没有哭。我是在翻到一年前那封信的时候哭的。因为17岁的我，在信的最后写了一句话，她说：<span class="kw">不管你考了多少分，我都为你骄傲</span>。</p>
+  <p>她不知道结果。她在最痛苦的时候写下这句话。她甚至不确定未来会不会变好，但她还是选择了温柔。17岁的我，<span class="kw">把所有的恐惧自己吞下去了</span>，把最好的祝愿留给了18岁的我。</p>
+  <p>那封信我现在还留着。放在书桌上，跟那些破破烂烂的小纸条、手绘的艾宾浩斯表格、一闪一闪的小台灯放在一起。这些东西都很旧了，折痕磨出了毛边，圆珠笔的字迹已经开始模糊。但每次看到它们，我都会想起那个<span class="kw">在黑暗中一点点往前挪的自己</span>。她那时候什么都还没证明，手里只有一摞手写的小纸条和一颗不肯认输的心，但她从来没有停下来。</p>
+  <p>我记得每个周六的傍晚，图书馆里人越来越少，窗外的天一点一点暗下去。我习惯坐在二楼靠角落的位置，因为那里的灯不会闪。有一次低头太久了，抬起头才发现<span class="kw">整个阅览室只剩我一个人</span>，走廊尽头传来清洁阿姨拖地的声音。我收拾书包站起来，腿已经麻了。走到楼下，<span class="kw">路灯刚好亮起来</span>。</p>
+  <p>所以这篇文章不是为了告诉别人我有多努力。不是的。</p>
+  <p>我是想告诉那个还在楼梯口背书的你，那个在物理课上不敢举手的你，那个觉得自己不够聪明、不够好、走得太慢的你。你没有落后，你只是用你自己的方式在前行。<span class="kw">每一个你觉得毫无意义的重复的清晨，每一次你以为没有人注意到的咬牙坚持</span>，都在未来的某一天等着你。</p>
+  <p>它们不会让你变成天才。但那些早起的凌晨，那些背了又忘、忘了又背的夜晚，那些掐着表吃完的晚饭，那些在皮肤上留下的指甲印，那些站到教室后面还是困到手里的书滑落到地上的瞬间——<span class="kw">这些都不会白费</span>。它们不会让你变成天才，但它们会把你带到你应该去的地方。</p>
+  <p>后来有人问我，查完分是什么感觉。</p>
+  <p class="no-indent" style="text-indent:0;">我说，像走了很久很久的夜路，<span class="kw">终于看到了天亮</span>。</p>
+  <span class="med-hl">那道光不是分数本身，是你在黑暗里走了那么久，终于可以回头看一眼来时的路，跟自己说一句——原来我真的可以。</span>
+</section>
+
+</div><!-- .container -->
+
+<!-- ═══ DARK CLOSING ═══ -->
+<section class="closing-dark">
+  <div class="final-line">未来，无限可能</div>
+</section>
+
+<!-- ═══ DAWN CLOSING ═══ -->
+<section class="dawn-closing">
+  <div class="dawn-text">19岁快乐<br>我知道你无所不能</div>
+</section>
+
+<!-- ═══ EPILOGUE ═══ -->
+<div class="container">
+<section class="epilogue">
+  <p>写这篇文章的时候，她刚刚查完高考分数——<span class="score">610分，安徽省文科1869名</span></p>
+  <p>上面这些"我记得"，每一个都是她走过的路。高一那年她在楼梯口借光看书的时候，不知道会有这个结果。她在物理课上硬着头皮问简单问题的时候，也不知道。但16岁的她每天都做了同一件事：不放弃。</p>
+  <p>那些看不到结果的时刻，累积成了今天的分数。这不是一个"努力就有回报"的童话，这是一个具体的人用具体的行动证明了自己的故事。</p>
+  <p>如果这篇文章让你想起了某个在黑暗里咬牙前行的自己，那她的记录就已经有了意义。</p>
+</section>
+
+<footer class="footer">
+  <p>谨以此文，纪念我的高中三年</p>
+</footer>
+</div>
+
+<!-- ═══ MUSIC ═══ -->
+<audio id="bgm" loop preload="auto" src="英雄主义.m4a"></audio>
+<button class="music-btn paused" id="musicBtn" title="播放音乐" aria-label="播放背景音乐"></button>
+
+<script>
+// ── Hero title: wrap text nodes in .char spans, skip <br> ──
+(function() {
+  const h1 = document.getElementById('heroTitle');
+  let charIndex = 0;
+  function wrapTextNodes(node) {
+    if (node.nodeType === 3) {
+      const chars = node.textContent.split('');
+      const frag = document.createDocumentFragment();
+      chars.forEach(c => {
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.textContent = c;
+        span.style.animationDelay = (0.6 + charIndex * 0.09) + 's';
+        charIndex++;
+        frag.appendChild(span);
+      });
+      node.parentNode.replaceChild(frag, node);
+    } else if (node.nodeType === 1 && node.nodeName !== 'BR') {
+      Array.from(node.childNodes).forEach(wrapTextNodes);
+    }
+  }
+  wrapTextNodes(h1);
+})();
+
+// ── Typewriter ──
+(function() {
+  const text = '查完分的晚上，看到了一年前写给自己的信…';
+  const el = document.getElementById('typewriter');
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 65 + Math.random() * 55);
+    } else {
+      el.classList.remove('typing');
+      el.classList.add('done');
+    }
+  }
+  setTimeout(type, 1500);
+})();
+
+// ── Scroll reveal ──
+(function() {
+  const targets = '.memory-card, .photo-full, .climax, .epilogue, .key-sentence, .visual-break .break-text, .meditation, .closing-dark, .dawn-closing, .photo-wrap, .med-hl';
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll(targets).forEach(el => observer.observe(el));
+})();
+
+// ── Climax: background warm-up + character flash ──
+(function() {
+  const zone = document.getElementById('climaxZone');
+  const hlWrap = document.getElementById('climaxHL');
+  const text = '16岁的我，我终于没有辜负你的期待。';
+  const chars = text.split('').map(c => {
+    const span = document.createElement('span');
+    span.className = 'climax-char';
+    span.textContent = c;
+    hlWrap.appendChild(span);
+    return span;
+  });
+  let flashed = false;
+  const zoneObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const pct = e.intersectionRatio;
+      if (pct < 0.3) { zone.classList.remove('warm', 'peak'); }
+      else if (pct < 0.5) { zone.classList.add('warm'); zone.classList.remove('peak'); }
+      else {
+        zone.classList.add('warm', 'peak');
+        if (!flashed) {
+          flashed = true;
+          chars.forEach((c, i) => setTimeout(() => c.classList.add('flash'), i * 80));
+        }
+      }
+    });
+  }, { threshold: [0, 0.3, 0.5, 0.7] });
+  zoneObserver.observe(zone);
+})();
+
+// ── Parallax for photos ──
+(function() {
+  const wraps = document.querySelectorAll('.photo-wrap');
+  window.addEventListener('scroll', () => {
+    wraps.forEach(w => {
+      if (!w.classList.contains('visible')) return;
+      const rect = w.getBoundingClientRect();
+      const pct = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+      const offset = Math.max(-10, Math.min(10, (pct - 0.5) * 20));
+      const img = w.querySelector('.photo-inline');
+      if (img) img.style.transform = `translateY(${offset}px)`;
+    });
+  }, { passive: true });
+})();
+
+// ── Music ──
+(function() {
+  const bgm = document.getElementById('bgm');
+  const btn = document.getElementById('musicBtn');
+  let playing = false;
+  function toggle() {
+    if (playing) { bgm.pause(); btn.classList.add('paused'); btn.classList.remove('playing'); }
+    else { bgm.play().then(() => { btn.classList.add('playing'); btn.classList.remove('paused'); }).catch(() => {}); }
+    playing = !playing;
+  }
+  btn.addEventListener('click', toggle);
+  document.addEventListener('click', function start() {
+    if (!playing) { bgm.play().then(() => { playing = true; btn.classList.add('playing'); btn.classList.remove('paused'); }).catch(() => {}); }
+  }, { once: true });
+})();
+</script>
+</body>
+</html>
